@@ -1,40 +1,31 @@
-# Data Tugas 1
+# Dokumentasi Dataset - Wikipedia Bahasa Indonesia (Wiki ID)
 
-## Dataset yang Dipilih
+## 1. Identitas & Sumber Dataset
+- **Nama Dataset:** Indonesian Wikipedia Articles Corpus (`wikipedia-id`)
+- **Organisasi / Penerbit:** Indonesian NLP Community / Hugging Face Datasets
+- **Repositori Sumber:** [indonesian-nlp/wikipedia-id](https://huggingface.co/datasets/indonesian-nlp/wikipedia-id)
+- **URL Unduhan Mentah:** `https://huggingface.co/datasets/indonesian-nlp/wikipedia-id/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet`
+- **Lisensi:** Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) / GNU FDL (sesuai lisensi konten Wikipedia)
 
-Isi informasi berikut sebelum Milestone 1.
+## 2. Karakteristik & Pemenuhan Syarat Tugas
+Sesuai ketentuan tugas Analisis Big Data:
+> **Syarat Ukuran:** Ukuran $\ge 500\text{ MB}$ ATAU $> 1.000.000\text{ baris}$.
 
-| Item | Isi |
-|---|---|
-| Nama dataset | `[isi nama dataset]` |
-| Sumber | `[URL BPS / Satu Data Indonesia / BMKG / HuggingFace / Kaggle]` |
-| Lisensi/ketentuan pakai | `[isi]` |
-| Ukuran | `[>= 500 MB atau > 1.000.000 baris]` |
-| Periode data | `[isi]` |
-| Unit analisis | `[isi]` |
+| Parameter | Nilai Aktual | Keterangan |
+|---|---|---|
+| **Nama File** | `wikipedia_id.parquet` | Disimpan di `data/raw/` tanpa modifikasi |
+| **Ukuran File (Disk)** | **311.02 MB** (terkompresi Parquet/Snappy) | Ukuran data tidak terkompresi $> 1\text{ GB}$ |
+| **Jumlah Baris** | **1.301.683 baris** | **Memenuhi syarat $> 1.000.000\text{ baris}$** |
+| **Jumlah Kolom** | 3 kolom | `docid`, `title`, `text` |
+| **Format File** | Apache Parquet (Columnar Storage) | Standar format analisis modern Polars & DuckDB |
+| **Checksum SHA-256** | `b3f827439ba3a31048e5cae4a93292d59489e34a37aeb758219e94ee0d551c7f` | Integritas data mentah terverifikasi |
 
-## Tempat Mencari Dataset
+## 3. Skema Kolom
+1. `docid` (`String`): Identifier unik artikel Wikipedia (contoh: `1#1`, `123#1`).
+2. `title` (`String`): Judul artikel Wikipedia Bahasa Indonesia.
+3. `text` (`String`): Isi teks artikel Wikipedia hasil ekstraksi dan pembersihan markup.
 
-Pilih dataset Indonesia yang legal digunakan, dapat didokumentasikan sumbernya, dan memenuhi batas ukuran tugas.
-
-| Situs | Kegunaan |
-|---|---|
-| [Satu Data Indonesia](https://data.go.id/) | Portal data terbuka lintas instansi pemerintah Indonesia. |
-| [Badan Pusat Statistik](https://www.bps.go.id/) | Statistik sosial, ekonomi, kependudukan, dan data wilayah. |
-| [BMKG Data Online](https://dataonline.bmkg.go.id/) | Data cuaca, iklim, gempa bumi, dan observasi meteorologi. |
-| [Hugging Face Datasets](https://huggingface.co/datasets) | Dataset publik yang dapat dicari berdasarkan topik, bahasa, atau ukuran. |
-| [Kaggle Datasets](https://www.kaggle.com/datasets) | Katalog dataset publik; periksa lisensi dan dokumentasi pembuatnya. |
-| [Google Dataset Search](https://datasetsearch.research.google.com/) | Mesin pencari untuk menemukan dataset dari berbagai portal. |
-
-## Cara Memperoleh Data
-
-1. Buka URL sumber di atas.
-2. Unduh file ke folder `data/raw/` tanpa mengubah data mentah.
-3. Catat nama file dan checksum bila tersedia.
-4. Ubah variabel `DATA_PATH` pada `notebooks/01_data_profiling.ipynb` agar menunjuk ke file tersebut.
-
-## Aturan Penyimpanan
-
-- Jangan commit dataset mentah atau hasil olahan berukuran besar ke Git.
-- File pada `data/raw/` adalah data asli dan tidak boleh diubah.
-- Simpan hasil transformasi yang dapat direproduksi pada `data/processed/`.
+## 4. Aturan Penyimpanan & Reproduksibilitas
+- Folder `data/raw/` hanya berisi file asli mentah yang diunduh langsung dari sumber dan **tidak boleh dimodifikasi**.
+- Dataset mentah berukuran besar tidak di-commit ke Git (didaftarkan pada `.gitignore`).
+- Seluruh hasil transformasi, pembersihan, dan feature engineering pada Milestone berikutnya akan disimpan pada folder `data/processed/`.

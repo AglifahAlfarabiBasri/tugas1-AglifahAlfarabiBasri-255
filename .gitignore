@@ -1,29 +1,31 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.so
-.Python
+*$py.class
+
+# Virtual environments
 .venv/
 venv/
-env/
-.env
+ENV/
 
-# Jupyter
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Data besar: simpan petunjuk unduh di data/README.md, bukan file data di Git
+# Big Data assignment rules:
+# Jangan commit dataset mentah atau hasil olahan berukuran besar ke Git
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
 
-# Output hasil analisis dan visualisasi
-output/figures/*
-!output/figures/.gitkeep
-output/*.csv
-output/*.parquet
-output/*.json
+# Ignore large archives & data formats
+*.parquet
+*.csv
+*.tsv
+*.tar.gz
+*.bz2
+*.zip
+*.duckdb
 
-# Sistem operasi dan editor
-.DS_Store
-.vscode/
+# Docker / local logs
+*.log

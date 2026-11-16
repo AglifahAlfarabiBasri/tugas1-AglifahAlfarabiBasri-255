@@ -1,0 +1,11 @@
+services:
+  bigdata-lab:
+    build: .
+    container_name: bigdata-analysis-env
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped
