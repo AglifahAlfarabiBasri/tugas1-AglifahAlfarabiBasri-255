@@ -229,8 +229,8 @@ Buka JupyterLab pada `http://localhost:8888/lab`. Konfigurasi Dockerfile menjala
 
 Isi bagian ini sebelum pengumpulan akhir.
 
-> Alat AI yang digunakan: [nama alat].
+> Alat AI yang digunakan: Agent Gemini ( IDE Antigravity )
 >
-> Bagian yang dibantu: [contoh: penjelasan error Polars atau review dokumentasi].
+> Bagian yang dibantu: Membantu dalam mencari rekomendasi dataset wikipedia indonesia dan menyesuaikan skrip profiling Polars/DuckDB
 >
-> Verifikasi yang dilakukan: [contoh: menjalankan ulang kode, memeriksa dokumentasi resmi, dan memahami setiap cell].
+> Verifikasi yang dilakukan: Memastikan dataset di HuggingFace, melakukan validasi checksum SHA-256 dan jumlah barisnya serta menjalankan ulang cell notebook secara lokal
